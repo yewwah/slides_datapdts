@@ -12,7 +12,6 @@ knit        : slidify::knit2slides
 ---
 
 ## Inputs
-
 Standard R distributions typically include the "***mtcars***" dataset. It contains data on 32 automobile models from 1973-1974.
 <p>
 There are three attributes that are of interest for this study:
@@ -21,7 +20,6 @@ There are three attributes that are of interest for this study:
 * hp - Horsepower
 * am - Transmission Type(Automatic or Manual)
 * mpg - gas mileage (U.S. miles per U.S. gallon)
-
 --- .class #id 
 
 ## The Model
@@ -34,19 +32,21 @@ a car's weight and the number of cylinders in its engine:
 model1 <- lm(mpg~., data = mtcars)
 model2 <- lm(mpg~am + wt + hp + disp + qsec, data = mtcars)
 model <- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
-anova(model, model1, model2)
+model
 ```
 
 ```
-## Analysis of Variance Table
 ## 
-## Model 1: mpg ~ wt + cyl + hp + am
-## Model 2: mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb
-## Model 3: mpg ~ am + wt + hp + disp + qsec
-##   Res.Df    RSS Df Sum of Sq      F Pr(>F)
-## 1     27 170.00                           
-## 2     21 147.49  6   22.5033 0.5340 0.7763
-## 3     26 153.44 -5   -5.9434 0.1692 0.9711
+## Call:
+## lm(formula = mpg ~ wt + cyl + hp + am, data = mtcars)
+## 
+## Coefficients:
+## (Intercept)           wt          cyl           hp           am  
+##    36.14654     -2.60648     -0.74516     -0.02495      1.47805
+```
+
+```r
+#anova(model, model1, model2)
 ```
 
 --- .class #id 

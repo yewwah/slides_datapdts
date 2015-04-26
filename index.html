@@ -55,36 +55,31 @@ There are three attributes that are of interest for this study:</p>
 <li>cyl - number of cylinders in the car&#39;s engine</li>
 <li>hp - Horsepower</li>
 <li>am - Transmission Type(Automatic or Manual)</li>
-<li>mpg - gas mileage (U.S. miles per U.S. gallon)</li>
+<li>mpg - gas mileage (U.S. miles per U.S. gallon)
+--- .class #id </li>
 </ul>
 
-  </article>
-  <!-- Presenter Notes -->
-</slide>
+<h2>The Model</h2>
 
-<slide class="class" id="id" style="background:;">
-  <hgroup>
-    <h2>The Model</h2>
-  </hgroup>
-  <article data-timings="">
-    <p>We can easily create a linear model to estimate gas mileage given
+<p>We can easily create a linear model to estimate gas mileage given
 a car&#39;s weight and the number of cylinders in its engine:</p>
 
 <pre><code class="r">model1 &lt;- lm(mpg~., data = mtcars)
 model2 &lt;- lm(mpg~am + wt + hp + disp + qsec, data = mtcars)
 model &lt;- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
-anova(model, model1, model2)
+model
 </code></pre>
 
-<pre><code>## Analysis of Variance Table
+<pre><code>## 
+## Call:
+## lm(formula = mpg ~ wt + cyl + hp + am, data = mtcars)
 ## 
-## Model 1: mpg ~ wt + cyl + hp + am
-## Model 2: mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb
-## Model 3: mpg ~ am + wt + hp + disp + qsec
-##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
-## 1     27 170.00                           
-## 2     21 147.49  6   22.5033 0.5340 0.7763
-## 3     26 153.44 -5   -5.9434 0.1692 0.9711
+## Coefficients:
+## (Intercept)           wt          cyl           hp           am  
+##    36.14654     -2.60648     -0.74516     -0.02495      1.47805
+</code></pre>
+
+<pre><code class="r">#anova(model, model1, model2)
 </code></pre>
 
   </article>
@@ -131,20 +126,14 @@ the rest of the cars.</p>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='The Model'>
+        data-slide=2 title='Results'>
          2
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=3 title='Results'>
+        data-slide=3 title='Interactive Demonstration'>
          3
-      </a>
-    </li>
-    <li>
-      <a href="#" target="_self" rel='tooltip' 
-        data-slide=4 title='Interactive Demonstration'>
-         4
       </a>
     </li>
   </ul>
