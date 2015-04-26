@@ -9,7 +9,7 @@ hitheme     : tomorrow      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
----
+--- .class #id
 
 ## Inputs
 Standard R distributions typically include the "***mtcars***" dataset. It contains data on 32 automobile models from 1973-1974.
