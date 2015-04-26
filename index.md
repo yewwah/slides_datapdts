@@ -28,6 +28,7 @@ a car's weight and the number of cylinders in its engine:
 
 ```r
 model1 <- lm(mpg~., data = mtcars)
+model <- lm(mpg ~ wt + cyl, data=mtcars)
 model <- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
 model
 ```

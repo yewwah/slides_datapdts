@@ -65,6 +65,7 @@ There are three attributes that are of interest for this study:</p>
 a car&#39;s weight and the number of cylinders in its engine:</p>
 
 <pre><code class="r">model1 &lt;- lm(mpg~., data = mtcars)
+model &lt;- lm(mpg ~ wt + cyl, data=mtcars)
 model &lt;- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
 model
 </code></pre>
