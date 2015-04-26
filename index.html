@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title></title>
+  <title>Predicting Gas Mileage Per Gallon</title>
   <meta charset="utf-8">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Predicting Gas Mileage Per Gallon">
+  <meta name="author" content="yewwah">
   <meta name="generator" content="slidify" />
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
@@ -32,9 +32,9 @@
     <!-- LOGO SLIDE -->
         <slide class="title-slide segue nobackground">
   <hgroup class="auto-fadein">
-    <h1></h1>
-    <h2></h2>
-    <p><br/></p>
+    <h1>Predicting Gas Mileage Per Gallon</h1>
+    <h2>Using Car Weight, Number of Engine, Transmission Type and Horsepower</h2>
+    <p>yewwah<br/></p>
   </hgroup>
   <article></article>  
 </slide>
@@ -43,14 +43,20 @@
     <!-- SLIDES -->
     <slide class="" id="slide-1" style="background:;">
   <hgroup>
-    <h2>Read-And-Delete</h2>
+    <h2>Inputs</h2>
   </hgroup>
   <article data-timings="">
-    <ol>
-<li>Edit YAML front matter</li>
-<li>Write using R Markdown</li>
-<li>Use an empty line followed by three dashes to separate slides!</li>
-</ol>
+    <p>Standard R distributions typically include the &quot;<strong><em>mtcars</em></strong>&quot; dataset. It contains data on 32 automobile models from 1973-1974.
+<p>
+There are three attributes that are of interest for this study:</p>
+
+<ul>
+<li>wt - weight of the car in U.S. tons</li>
+<li>cyl - number of cylinders in the car&#39;s engine</li>
+<li>hp - Horsepower</li>
+<li>am - Transmission Type(Automatic or Manual)</li>
+<li>mpg - gas mileage (U.S. miles per U.S. gallon)</li>
+</ul>
 
   </article>
   <!-- Presenter Notes -->
@@ -58,10 +64,65 @@
 
 <slide class="class" id="id" style="background:;">
   <hgroup>
-    <h2>Slide 2</h2>
+    <h2>The Model</h2>
   </hgroup>
   <article data-timings="">
-    
+    <pre><code class="r">#This is a reference of the previous course Regression Models
+</code></pre>
+
+<p>We can easily create a linear model to estimate gas mileage given
+a car&#39;s weight and the number of cylinders in its engine:</p>
+
+<pre><code class="r">model1 &lt;- lm(mpg~., data = mtcars)
+model2 &lt;- lm(mpg~am + wt + hp + disp + qsec, data = mtcars)
+model &lt;- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
+anova(model, model1, model2)
+</code></pre>
+
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: mpg ~ wt + cyl + hp + am
+## Model 2: mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb
+## Model 3: mpg ~ am + wt + hp + disp + qsec
+##   Res.Df    RSS Df Sum of Sq      F Pr(&gt;F)
+## 1     27 170.00                           
+## 2     21 147.49  6   22.5033 0.5340 0.7763
+## 3     26 153.44 -5   -5.9434 0.1692 0.9711
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Results</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Thus we chose this model as it has the best scores</p>
+
+<pre><code class="r">plot(model)
+</code></pre>
+
+<p><img src="assets/fig/unnamed-chunk-3-1.png" alt="plot of chunk unnamed-chunk-3"> <img src="assets/fig/unnamed-chunk-3-2.png" alt="plot of chunk unnamed-chunk-3"> <img src="assets/fig/unnamed-chunk-3-3.png" alt="plot of chunk unnamed-chunk-3"> <img src="assets/fig/unnamed-chunk-3-4.png" alt="plot of chunk unnamed-chunk-3"> </p>
+
+<p>The model isn&#39;t great, but it&#39;s good enough for us to play with.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="d" style="background:;">
+  <hgroup>
+    <h2>Interactive Demonstration</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The following link provides an interactive demonstration of this model:    </p>
+
+<p>You will be able to set the number of cylinders and the weight of
+the car and see where the resulting predicted mileage fits in with
+the rest of the cars.</p>
+
   </article>
   <!-- Presenter Notes -->
 </slide>
@@ -72,14 +133,26 @@
     <ul>
       <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=1 title='Read-And-Delete'>
+        data-slide=1 title='Inputs'>
          1
       </a>
     </li>
     <li>
       <a href="#" target="_self" rel='tooltip' 
-        data-slide=2 title='Slide 2'>
+        data-slide=2 title='The Model'>
          2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Results'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Interactive Demonstration'>
+         4
       </a>
     </li>
   </ul>
