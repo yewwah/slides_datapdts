@@ -30,7 +30,6 @@ a car's weight and the number of cylinders in its engine:
 
 ```r
 model1 <- lm(mpg~., data = mtcars)
-model2 <- lm(mpg~am + wt + hp + disp + qsec, data = mtcars)
 model <- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
 model
 ```
@@ -56,6 +55,13 @@ model
 Thus we chose this model as it has the best scores
 
 
+```r
+annova(model, model1)
+```
+
+```
+## Error in eval(expr, envir, enclos): could not find function "annova"
+```
 The model isn't great, but it's good enough for us to play with.
 
 --- .class #d

@@ -65,7 +65,6 @@ There are three attributes that are of interest for this study:</p>
 a car&#39;s weight and the number of cylinders in its engine:</p>
 
 <pre><code class="r">model1 &lt;- lm(mpg~., data = mtcars)
-model2 &lt;- lm(mpg~am + wt + hp + disp + qsec, data = mtcars)
 model &lt;- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
 model
 </code></pre>
@@ -92,6 +91,12 @@ model
   </hgroup>
   <article data-timings="">
     <p>Thus we chose this model as it has the best scores</p>
+
+<pre><code class="r">annova(model, model1)
+</code></pre>
+
+<pre><code>## Error in eval(expr, envir, enclos): could not find function &quot;annova&quot;
+</code></pre>
 
 <p>The model isn&#39;t great, but it&#39;s good enough for us to play with.</p>
 
