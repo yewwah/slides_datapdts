@@ -23,10 +23,8 @@ There are three attributes that are of interest for this study:
 --- .class #id 
 
 ## The Model
-
 We can easily create a linear model to estimate gas mileage given
 a car's weight and the number of cylinders in its engine:
-
 
 ```r
 model1 <- lm(mpg~., data = mtcars)
@@ -47,7 +45,6 @@ model
 ```r
 #anova(model, model1, model2)
 ```
-
 --- .class #id 
 
 ## Results
