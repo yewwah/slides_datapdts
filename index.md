@@ -9,7 +9,7 @@ hitheme     : tomorrow      #
 widgets     : []            # {mathjax, quiz, bootstrap}
 mode        : selfcontained # {standalone, draft}
 knit        : slidify::knit2slides
---- .class #id
+--- 
 
 ## Inputs
 Standard R distributions typically include the "***mtcars***" dataset. It contains data on 32 automobile models from 1973-1974.
@@ -20,6 +20,7 @@ There are three attributes that are of interest for this study:
 * hp - Horsepower
 * am - Transmission Type(Automatic or Manual)
 * mpg - gas mileage (U.S. miles per U.S. gallon)
+
 --- .class #id 
 
 ## The Model
@@ -27,8 +28,6 @@ We can easily create a linear model to estimate gas mileage given
 a car's weight and the number of cylinders in its engine:
 
 ```r
-model1 <- lm(mpg~., data = mtcars)
-model <- lm(mpg ~ wt + cyl, data=mtcars)
 model <- lm(mpg ~ wt + cyl + hp + am, data=mtcars)
 model
 ```
@@ -43,33 +42,41 @@ model
 ##    36.14654     -2.60648     -0.74516     -0.02495      1.47805
 ```
 
-```r
-#anova(model, model1, model2)
-```
 --- .class #id 
 
-## Results
+## Results Analysis
 
-Thus we chose this model as it has the best scores
-
+Proof of why we chose this model
 
 ```r
-annova(model, model1)
+model1 <- lm(mpg~., data = mtcars)
+model2 <- lm(mpg ~ wt + cyl, data=mtcars)
+anova(model, model1, model2)
 ```
 
 ```
-## Error in eval(expr, envir, enclos): could not find function "annova"
+## Analysis of Variance Table
+## 
+## Model 1: mpg ~ wt + cyl + hp + am
+## Model 2: mpg ~ cyl + disp + hp + drat + wt + qsec + vs + am + gear + carb
+## Model 3: mpg ~ wt + cyl
+##   Res.Df    RSS Df Sum of Sq      F Pr(>F)
+## 1     27 170.00                           
+## 2     21 147.49  6    22.503 0.5340 0.7763
+## 3     29 191.17 -8   -43.678 0.7773 0.6269
 ```
-The model isn't great, but it's good enough for us to play with.
+The p-value obtained is highly significant but the workings are not shown due to space constrains
 
---- .class #d
+--- .class #id
 
 ## Interactive Demonstration
 
 The following link provides an interactive demonstration of this model:    
-   
-You will be able to set the number of cylinders and the weight of
-the car and see where the resulting predicted mileage fits in with
+
+http://yewwah.github.io/slides_datapdts
+
+You will be able to set the number of cylinders, the weight of
+the car, the transmission type and horsepower and see where the resulting predicted mileage fits in with
 the rest of the cars.
 
 
