@@ -1,7 +1,7 @@
 ---
 title       : Predicting Gas Mileage Per Gallon
 subtitle    : Using Car Weight, Number of Engine, Transmission Type and Horsepower
-author      : yewwah
+author      : Yew Wah
 job         : 
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
 highlighter : highlight.js  # {highlight.js, prettify, highlight}
