@@ -26,9 +26,6 @@ There are three attributes that are of interest for this study:
 
 ## The Model
 
-```r
-#This is a reference of the previous course Regression Models
-```
 We can easily create a linear model to estimate gas mileage given
 a car's weight and the number of cylinders in its engine:
 
@@ -58,9 +55,6 @@ anova(model, model1, model2)
 
 Thus we chose this model as it has the best scores
 
-```r
-#plot(model)
-```
 
 The model isn't great, but it's good enough for us to play with.
 
